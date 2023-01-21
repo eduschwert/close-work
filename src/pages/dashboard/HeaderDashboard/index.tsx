@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import logo from "../../../assets/logo-header.svg";
 import { UserContext } from "../../../context/UserContext";
-import { Button } from "../../../components/Button";
 import { StyledContent, StyledHeader } from "./style";
 import { ContainerHome } from "./style";
+import { StyledButton } from "../../../styles/buttons";
 
 export const HeaderDashboard = () => {
   const { handleLogout } = useContext(UserContext);
@@ -12,12 +12,13 @@ export const HeaderDashboard = () => {
       <ContainerHome>
         <StyledContent>
           <img src={logo} alt="Imagem de logo do site Close Worker" />
-          <Button
+          <StyledButton
+            buttonStyle="blueLight"
             type="button"
-            style="blueLight"
-            name="Logout"
-            action={handleLogout}
-          />
+            onClick={handleLogout}
+          >
+            Logout
+          </StyledButton>
         </StyledContent>
       </ContainerHome>
     </StyledHeader>

@@ -1,14 +1,12 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Title } from "../../../../components/Title";
 import { ServiceContext } from "../../../../context/ServiceContext";
 import { StyledCard, StyledStars } from "./style";
 import { iServiceCardProps } from "./type";
 import whatsappIcon from "../../../../assets/whatsapp-icon.svg";
-import { AiFillStar } from "react-icons/ai";
-import { BsStarHalf } from "react-icons/bs";
 import { ImgProfile } from "../../../../components/ImgProfile";
-import { LinkNavigation } from "../../../../components/LinkNavigation";
 import Rating from "@mui/material/Rating";
+import { StyledLink } from "../../../../styles/buttons";
 
 export const ServiceCard = ({ service }: iServiceCardProps) => {
   const { listComments, whatsNumber } = useContext(ServiceContext);
@@ -63,6 +61,7 @@ export const ServiceCard = ({ service }: iServiceCardProps) => {
             service.phone_number
           )}`}
           target="_blank"
+          rel="noreferrer"
         >
           <img src={whatsappIcon} alt="Ícone do whatsappp" />
         </a>
@@ -89,11 +88,9 @@ export const ServiceCard = ({ service }: iServiceCardProps) => {
           </StyledStars>
         )}
       </div>
-      <LinkNavigation
-        linkTo={`/more_infos/${service.id}`}
-        name="Ver mais"
-        style="blueDark"
-      />
+      <StyledLink buttonStyle="blueDark" to={`/more_infos/${service.id}`}>
+        Ver mais
+      </StyledLink>
     </StyledCard>
   );
 };

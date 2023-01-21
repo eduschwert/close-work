@@ -11,9 +11,13 @@ import { Input } from "../../components/Input";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { Title } from "../../components/Title";
-import { Link } from "react-router-dom";
 import { RotatingLines } from "react-loader-spinner";
 import { FramerMotionLoginRegister } from "../../components/FramerMotion";
+import {
+  StyledButton,
+  StyledLink,
+  StyledLinkInline,
+} from "../../styles/buttons";
 
 export const Login = () => {
   const { loadingButton, onSubmitLogin } = useContext(UserContext);
@@ -37,7 +41,7 @@ export const Login = () => {
           Login
         </Title>
         <div>
-          <Link to="/home">Retornar para Home</Link>
+          <StyledLinkInline to="/home">Retornar para Home</StyledLinkInline>
         </div>
         <form action="submit" onSubmit={handleSubmit(onSubmitLogin)} noValidate>
           <Input
@@ -56,7 +60,11 @@ export const Login = () => {
             placeholder="Digite sua senha"
             error={errors.password?.message}
           />
-          <Button type="submit" style="blueDark" disabled={loadingButton}>
+          <StyledButton
+            buttonStyle="blueDark2"
+            type="submit"
+            disabled={loadingButton}
+          >
             {loadingButton ? (
               <RotatingLines
                 strokeColor="white"
@@ -68,15 +76,13 @@ export const Login = () => {
             ) : (
               "Login"
             )}
-          </Button>
+          </StyledButton>
         </form>
         <div>
           <p>Ainda não tem conta? Realize seu cadastro agora!</p>
-          <LinkNavigation
-            style="blueLight"
-            name="Cadastrar"
-            linkTo="/register"
-          ></LinkNavigation>
+          <StyledLink buttonStyle="blueLight" to="/register">
+            Cadastrar
+          </StyledLink>
         </div>
       </FramerMotionLoginRegister>
       <FramerMotionLoginRegister className="img-section-login">

@@ -1,21 +1,20 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "./registerSchema";
-import { Button } from "../../components/Button";
-
 import { UserContext } from "../../context/UserContext";
 import { useContext } from "react";
-
-import { LinkNavigation } from "../../components/LinkNavigation";
 import { StyledRegister } from "./style";
-
 import fullLogo from "../../assets/light-full-logo.svg";
 import workersImg from "../../assets/workers-img.svg";
 import { Input } from "../../components/Input";
 import { Title } from "../../components/Title";
-import { Link } from "react-router-dom";
 import { RotatingLines } from "react-loader-spinner";
 import { FramerMotionLoginRegister } from "../../components/FramerMotion";
+import {
+  StyledButton,
+  StyledLink,
+  StyledLinkInline,
+} from "../../styles/buttons";
 
 interface IRegisterFormData {
   name: string;
@@ -53,7 +52,7 @@ export const Register = () => {
           Cadastro
         </Title>
         <div>
-          <Link to="/home">Retornar para Home</Link>
+          <StyledLinkInline to="/home">Retornar para Home</StyledLinkInline>
         </div>
         <form
           action="submit"
@@ -107,7 +106,11 @@ export const Register = () => {
             maxLength={15}
           />
 
-          <Button type="submit" style="blueDark" disabled={loadingButton}>
+          <StyledButton
+            buttonStyle="blueDark2"
+            type="submit"
+            disabled={loadingButton}
+          >
             {loadingButton ? (
               <RotatingLines
                 strokeColor="white"
@@ -119,15 +122,13 @@ export const Register = () => {
             ) : (
               "Cadastrar"
             )}
-          </Button>
+          </StyledButton>
         </form>
         <div>
           <p>Já possui conta? Realize seu login agora!</p>
-          <LinkNavigation
-            style="blueLight"
-            name="Login"
-            linkTo="/login"
-          ></LinkNavigation>
+          <StyledLink buttonStyle="blueLight" to="/login">
+            Login
+          </StyledLink>
         </div>
       </FramerMotionLoginRegister>
     </StyledRegister>

@@ -12,6 +12,7 @@ import { useContext, useRef } from "react";
 import { ServiceContext } from "../../../context/ServiceContext";
 import { UserContext } from "../../../context/UserContext";
 import { ImgProfile } from "../../../components/ImgProfile";
+import { StyledButton, StyledButtonIcon } from "../../../styles/buttons";
 
 export const ProfileDashboard = () => {
   const { setOpenModal, setTypeModal, setIdUser } = useContext(ServiceContext);
@@ -21,17 +22,16 @@ export const ProfileDashboard = () => {
     <StyledProfile>
       <ContainerHome>
         <StyledEdit>
-          <Button
-            style="icon"
+          <StyledButtonIcon
             type="button"
-            action={() => {
+            onClick={() => {
               setOpenModal(true);
               setTypeModal("EditUser");
               setIdUser(userProfile.id);
             }}
           >
             <MdEdit />
-          </Button>
+          </StyledButtonIcon>
         </StyledEdit>
         <StyledProfileDescription>
           <ImgProfile

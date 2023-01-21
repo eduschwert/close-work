@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Footer } from "../../components/Footer";
 import { iDefaultErrorResponse, iListComments } from "../../context/type";
 import { iServiceMoreInfo } from "../moreInfo";

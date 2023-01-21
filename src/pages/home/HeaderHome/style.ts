@@ -48,8 +48,4 @@ export const StyledHeader = styled.header`
       justify-content: center;
     }
   }
-
-  a {
-    width: 120px;
-  }
 `;

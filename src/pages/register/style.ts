@@ -47,12 +47,7 @@ export const StyledRegister = styled.main`
     }
 
     Button {
-      height: 60px;
       margin-top: 10px;
-      &:hover {
-        background-color: var(--color-blue-4);
-        color: var(--color-blue-1);
-      }
     }
     Input {
       width: 100%;
@@ -69,31 +64,6 @@ export const StyledRegister = styled.main`
     p {
       padding: 0 10px;
       color: var(--color-gray-10);
-    }
-    a {
-      height: 60px;
-    }
-  }
-
-  .form-section {
-    & > h2 + div {
-      height: 30px;
-      display: flex;
-
-      text-align: end;
-      & > a {
-        font-size: 16px;
-        text-decoration: underline;
-        color: var(--color-blue-6);
-      }
-      & > a:hover {
-        text-decoration: none;
-        color: var(--color-blue-5);
-        font-weight: bold;
-      }
-    }
-    @media (min-width: 800px) {
-      align-items: flex-start;
     }
   }
 `;

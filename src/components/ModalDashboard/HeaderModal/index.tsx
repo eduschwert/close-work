@@ -7,6 +7,7 @@ import { ServiceContext } from "../../../context/ServiceContext";
 import { useContext } from "react";
 import { UserContext } from "../../../context/UserContext";
 import { ImgProfile } from "../../ImgProfile";
+import { StyledButtonTransparent } from "../../../styles/buttons";
 
 export const HeaderModal = () => {
   const { closeModal } = useContext(ServiceContext);
@@ -28,12 +29,9 @@ export const HeaderModal = () => {
           </Title> */}
         </div>
       </UserInfo>
-      <Button
-        style="transparent"
-        type="button"
-        children={<AiOutlineClose />}
-        action={() => closeModal()}
-      />
+      <StyledButtonTransparent type="button" onClick={() => closeModal()}>
+        <AiOutlineClose />
+      </StyledButtonTransparent>
     </Header>
   );
 };

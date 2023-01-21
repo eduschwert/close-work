@@ -2,9 +2,9 @@ import { useContext } from "react";
 import { ServiceContext } from "../../../../context/ServiceContext";
 import { UserContext } from "../../../../context/UserContext";
 import { api } from "../../../../services/api";
-import { Button } from "../../../Button";
 import { Title } from "../../../Title";
 import { RotatingLines } from "react-loader-spinner";
+import { StyledButton } from "../../../../styles/buttons";
 
 export const DeleteUser = () => {
   const {
@@ -43,10 +43,10 @@ export const DeleteUser = () => {
         type="Heading1"
       />
       <div>
-        <Button
-          style="delete"
+        <StyledButton
+          buttonStyle="redDark"
           type="button"
-          action={() => {
+          onClick={() => {
             onSubmitDeleteUser();
             handleLogout();
           }}
@@ -62,13 +62,14 @@ export const DeleteUser = () => {
           ) : (
             "Excluir"
           )}
-        </Button>
-        <Button
-          style="blueLight"
+        </StyledButton>
+        <StyledButton
+          buttonStyle="blueLight"
           type="button"
-          name="Manter"
-          action={() => closeModal()}
-        />
+          onClick={() => closeModal()}
+        >
+          Manter
+        </StyledButton>
       </div>
     </>
   );

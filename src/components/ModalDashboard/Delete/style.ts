@@ -15,17 +15,4 @@ export const DivDelete = styled.div`
     justify-content: center;
     gap: 20px;
   }
-  button {
-    width: 100px;
-  }
-  button:first-child {
-    background-color: var(--color-negative-hover);
-    border: 2px solid var(--color-negative-hover);
-    color: var(--color-neutral-white);
-  }
-  button:first-child:hover {
-    background-color: var(--color-negative);
-    border: 2px solid var(--color-negative);
-    color: var(--color-neutral-black);
-  }
 `;

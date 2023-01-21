@@ -1,4 +1,3 @@
-import { Button } from "../../Button";
 import { DivModal } from "../style";
 import { DivEdit, FormEdit } from "./style";
 import { Input } from "../../Input";
@@ -12,6 +11,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { editProfileSchema } from "./editUserSchema";
 import { api } from "../../../services/api";
 import { RotatingLines } from "react-loader-spinner";
+import { StyledButton } from "../../../styles/buttons";
 
 interface iEditProfileSubmit {
   name: string;
@@ -143,8 +143,11 @@ export const EditUser = () => {
             linkForm={register("avatar")}
             error={errors.avatar?.message}
           />
-
-          <Button style="blueLight" type="submit" disabled={loadingButtonModal}>
+          <StyledButton
+            buttonStyle="blueLight"
+            type="submit"
+            disabled={loadingButtonModal}
+          >
             {loadingButtonModal ? (
               <RotatingLines
                 strokeColor="black"
@@ -156,15 +159,15 @@ export const EditUser = () => {
             ) : (
               "Atualizar Perfil"
             )}
-          </Button>
-
-          <Button
-            name="Excluir Perfil"
-            style="grey1"
+          </StyledButton>
+          <StyledButton
+            buttonStyle="redLight"
             type="button"
             disabled={loadingButtonModal}
-            action={() => setTypeModal("DeleteUser")}
-          />
+            onClick={() => setTypeModal("DeleteUser")}
+          >
+            Excluir Perfil
+          </StyledButton>
         </FormEdit>
       </DivEdit>
     </DivModal>

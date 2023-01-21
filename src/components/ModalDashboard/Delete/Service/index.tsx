@@ -4,6 +4,7 @@ import { api } from "../../../../services/api";
 import { Button } from "../../../Button";
 import { Title } from "../../../Title";
 import { RotatingLines } from "react-loader-spinner";
+import { StyledButton } from "../../../../styles/buttons";
 
 export const DeleteService = () => {
   const {
@@ -42,10 +43,11 @@ export const DeleteService = () => {
         type="Heading1"
       />
       <div>
-        <Button
-          style="delete"
+        <StyledButton
+          buttonStyle="redDark"
+          width="10rem"
           type="button"
-          action={() => onSubmitDeleteService()}
+          onClick={() => onSubmitDeleteService()}
           disabled={loadingButtonModal}
         >
           {loadingButtonModal ? (
@@ -59,13 +61,16 @@ export const DeleteService = () => {
           ) : (
             "Excluir"
           )}
-        </Button>
-        <Button
-          style="blueLight"
+        </StyledButton>
+        <StyledButton
+          buttonStyle="blueLight"
+          width="10rem"
           type="button"
-          name="Manter"
-          action={() => closeModal()}
-        />
+          onClick={() => closeModal()}
+          disabled={loadingButtonModal}
+        >
+          Manter
+        </StyledButton>
       </div>
     </>
   );

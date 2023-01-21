@@ -1,6 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, Controller } from "react-hook-form";
-import { Button } from "../../../components/Button";
 import { Input } from "../../../components/Input";
 import { Textarea } from "../../../components/Textarea";
 import { ContainerNewComment, Fieldset } from "./style";
@@ -13,6 +12,7 @@ import { api } from "../../../services/api";
 import React, { useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
 import Rating from "@mui/material/Rating";
+import { StyledButton } from "../../../styles/buttons";
 
 export interface iNewComment {
   name: string;
@@ -134,7 +134,7 @@ export const NewComment = ({ setListComments }: iPropsNewComment) => {
           {errors.service_rating?.message}
         </Title>
       </Fieldset>
-      <Button style="blueDark" type="submit" disabled={load}>
+      <StyledButton buttonStyle="blueDark" type="submit" disabled={load}>
         {load ? (
           <RotatingLines
             strokeColor="white"
@@ -146,7 +146,7 @@ export const NewComment = ({ setListComments }: iPropsNewComment) => {
         ) : (
           "Enviar Depoimento"
         )}
-      </Button>
+      </StyledButton>
     </ContainerNewComment>
   );
 };

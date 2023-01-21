@@ -51,7 +51,7 @@ export const StyledCard = styled.li`
     width: 100%;
     object-fit: cover;
 
-    transition: 150ms ease-in-out;
+    transition: 150ms linear;
 
     &:hover {
       transform: scale(1.1);
