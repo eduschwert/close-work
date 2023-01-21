@@ -1,7 +1,7 @@
 import logo from "../../../assets/logo-header.svg";
 import { StyledContent, StyledHeader } from "./style";
-import { LinkNavigation } from "../../../components/LinkNavigation";
 import { ContainerHome } from "../../dashboard/style";
+import { StyledLink } from "../../../styles/buttons";
 
 export const HeaderViewMore = () => {
   return (
@@ -9,7 +9,9 @@ export const HeaderViewMore = () => {
       <ContainerHome>
         <StyledContent>
           <img src={logo} alt="Imagem de logo do site Close Worker" />
-          <LinkNavigation linkTo="/dashboard" name="Voltar" style="blueLight" />
+          <StyledLink buttonStyle="blueLight" to="/dashboard">
+            Voltar
+          </StyledLink>
         </StyledContent>
       </ContainerHome>
     </StyledHeader>
