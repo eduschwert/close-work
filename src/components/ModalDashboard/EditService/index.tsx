@@ -14,6 +14,7 @@ import { editServiceSchema } from "./editServiceSchema";
 import { iEditServiceSubmit } from "./type";
 import { api } from "../../../services/api";
 import { RotatingLines } from "react-loader-spinner";
+import { StyledButton } from "../../../styles/buttons";
 
 export const EditService = () => {
   const {
@@ -93,7 +94,7 @@ export const EditService = () => {
             linkForm={register("description")}
             error={errors.description?.message}
           />
-          <Button style="blueLight" type="submit">
+          <StyledButton buttonStyle="blueLight" type="submit">
             {loadingButtonModal ? (
               <RotatingLines
                 strokeColor="black"
@@ -105,7 +106,7 @@ export const EditService = () => {
             ) : (
               "Atualizar Serviço"
             )}
-          </Button>
+          </StyledButton>
         </FormEdit>
       </DivEdit>
     </DivModal>

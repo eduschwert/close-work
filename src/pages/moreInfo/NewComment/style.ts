@@ -17,11 +17,6 @@ export const ContainerNewComment = styled.form`
     background-color: var(--color-blue-6);
   }
 
-  button {
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    width: 200px;
-  }
-
   fieldset:nth-child(1) > label,
   fieldset:nth-child(2) > label {
     color: var(--color-blue-1);

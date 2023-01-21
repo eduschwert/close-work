@@ -21,10 +21,6 @@ export const StyledEdit = styled.div`
     padding: 2px;
     background-color: var(--color-neutral-white);
   }
-  button {
-    height: max-content;
-    padding: 5px;
-  }
 `;
 
 export const StyledProfileDescription = styled.div`

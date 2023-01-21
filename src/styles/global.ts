@@ -1,16 +1,55 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+  :root {
+    --color-blue-1: #111C31;
+    --color-blue-2: #263F6D;
+    --color-blue-3: #3A60A6 ;
+    --color-blue-4: #6487C8;
+    --color-blue-5: #A0B6DD;
+    --color-blue-6: #D5DEF0;
   
+    --color-gray-1: #212529;
+    --color-gray-2: #343A40;
+    --color-gray-3: #495057 ;
+    --color-gray-4: #868E96;
+    --color-gray-5: #ADB5BD;
+    --color-gray-6: #CED4DA;
+    --color-gray-7: #DEE2E6;
+    --color-gray-8: #E9ECEF;
+    --color-gray-9: #F1F3F5 ;
+    --color-gray-10: #F8F9FA;
+  
+    --color-neutral-white: #ffffff;
+    --color-neutral-black: #000000;
+  
+    --color-sucess: #168821;
+    --color-negative: #E60000;
+
+    --radius-1: 0.4rem;
+    --radius-circle: 50%;
+  
+    font-size: 60%;   
+  }
+  @media (min-width: 420px) {
+      :root {
+        font-size: 62.5%;
+      }
+    }
+
   *{
     margin: 0;
     padding: 0;
+    outline: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
   }
 
   ul{
-    list-style-type: none;
+    list-style: none;
+  }
+
+  a{
+    text-decoration: none;
   }
 
   body,html{
@@ -18,48 +57,28 @@ export const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
   }
 
-  
-:root {
- 
-  --color-blue-1: #111C31;
-  --color-blue-2: #263F6D;
-  --color-blue-3: #3A60A6 ;
-  --color-blue-4: #6487C8;
-  --color-blue-5: #A0B6DD;
-  --color-blue-6: #D5DEF0;
+  body{
+    background: var(--color-neutral-white);
+  }
 
-  --color-gray-1: #212529;
-  --color-gray-2: #343A40;
-  --color-gray-3: #495057 ;
-  --color-gray-4: #868E96;
-  --color-gray-5: #ADB5BD;
-  --color-gray-6: #CED4DA;
-  --color-gray-7: #DEE2E6;
-  --color-gray-8: #E9ECEF;
-  --color-gray-9: #F1F3F5 ;
-  --color-gray-10: #F8F9FA;
+  body, input, button, textarea {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.6rem;
+  }
 
-  --color-neutral-white: #ffffff;
-  --color-neutral-black: #000000;
+  button {
+    cursor: pointer;
+  }
 
-  --color-sucess: #168821;
-  --color-negative: #ADB5BD;
-  --color-negative-hover: #E60000;
-
+::-webkit-scrollbar {
+  width: 12px;              
 }
-
-*::-webkit-scrollbar {
-  width: 12px;               /* width of the entire scrollbar */
+::-webkit-scrollbar-track {
+  background: var(--color-blue-5);        
 }
-
-*::-webkit-scrollbar-track {
-  background: var(--color-blue-5);        /* color of the tracking area */
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-blue-2);   
+  border-radius: 20px;     
+  border: 3px solid var(--color-blue-5); 
 }
-
-*::-webkit-scrollbar-thumb {
-  background-color: var(--color-blue-2);    /* color of the scroll thumb */
-  border-radius: 20px;       /* roundness of the scroll thumb */
-  border: 3px solid var(--color-blue-5);  /* creates padding around scroll thumb */
-}
-
 `;

@@ -11,6 +11,7 @@ import { Title } from "../../../components/Title";
 import { useContext } from "react";
 import { ServiceContext } from "../../../context/ServiceContext";
 import { LoadingContainer } from "../../../components/LoadingContainer";
+import { StyledButton } from "../../../styles/buttons";
 
 export const ServicesDashboard = () => {
   const {
@@ -28,15 +29,16 @@ export const ServicesDashboard = () => {
           type="Body-600"
           colorTitle="blue-1"
         />
-        <Button
-          style="blueDark"
+        <StyledButton
+          buttonStyle="blueDark"
           type="button"
-          name="Cadastar"
-          action={() => {
+          onClick={() => {
             setOpenModal(true);
             setTypeModal("RegisterService");
           }}
-        />
+        >
+          Cadastar
+        </StyledButton>
       </StyledRegisterServices>
       <StyledService>
         <Title children="Serviços" type="Heading2" colorTitle="blue-2" />

@@ -1,11 +1,10 @@
-import { AxiosError } from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Footer } from "../../components/Footer";
 import { FramerMotionHomeDashboardMoreInfo } from "../../components/FramerMotion";
 import { LoadingFullPage } from "../../components/LoadingFullPage";
 import { Title } from "../../components/Title";
-import { iDefaultErrorResponse, iListComments } from "../../context/type";
+import { iListComments } from "../../context/type";
 import { api } from "../../services/api";
 import { DescriptionMoreInfo } from "./DescriptionMoreInfo";
 import { HeaderMoreInfo } from "./HeaderMoreInfo";

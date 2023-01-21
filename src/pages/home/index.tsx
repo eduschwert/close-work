@@ -1,12 +1,6 @@
 import { useContext, useEffect } from "react";
 import { HeaderHome } from "./HeaderHome";
-import {
-  ContainerHome,
-  PageContainer,
-  StyledFilterSection,
-  StyledPicturesDiv,
-} from "./style";
-import { Title } from "../../components/Title";
+import { ContainerHome, PageContainer, StyledFilterSection } from "./style";
 import { Footer } from "../../components/Footer";
 import { ServicesList } from "./ServicesList";
 import { ServiceContext } from "../../context/ServiceContext";

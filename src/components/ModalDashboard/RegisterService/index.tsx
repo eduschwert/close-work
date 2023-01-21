@@ -14,6 +14,7 @@ import { api } from "../../../services/api";
 import { iRegisterServiceSubmit } from "./type";
 import { registerServiceSchema } from "./registerServiceSchema";
 import { RotatingLines } from "react-loader-spinner";
+import { StyledButton } from "../../../styles/buttons";
 
 export const RegisterService = () => {
   const {
@@ -85,7 +86,11 @@ export const RegisterService = () => {
             linkForm={register("description")}
             error={errors.description?.message}
           />
-          <Button style="blueLight" type="submit" disabled={loadingButtonModal}>
+          <StyledButton
+            buttonStyle="blueLight"
+            type="submit"
+            disabled={loadingButtonModal}
+          >
             {loadingButtonModal ? (
               <RotatingLines
                 strokeColor="black"
@@ -97,7 +102,7 @@ export const RegisterService = () => {
             ) : (
               "Cadastrar Serviço"
             )}
-          </Button>
+          </StyledButton>
         </FormRegister>
       </DivRegister>
     </DivModal>
