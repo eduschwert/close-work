@@ -1,22 +1,21 @@
+import { useContext } from "react";
 import { MdEdit } from "react-icons/md";
-import {
-  StyledEdit,
-  StyledName,
-  StyledProfile,
-  StyledProfileDescription,
-} from "./style";
-import { Button } from "../../../components/Button";
-import { ContainerHome } from "../style";
-import { Title } from "../../../components/Title";
-import { useContext, useRef } from "react";
-import { ServiceContext } from "../../../context/ServiceContext";
-import { UserContext } from "../../../context/UserContext";
 import { ImgProfile } from "../../../components/ImgProfile";
-import { StyledButton, StyledButtonIcon } from "../../../styles/buttons";
+import { Title } from "../../../components/Title";
+import { ServiceContext } from "../../../context/ServicesContext";
+import { UserContext } from "../../../context/UserContext";
+import { StyledButtonIcon } from "../../../styles/buttons";
+import { ContainerHome } from "../style";
+import {
+  StyledProfile,
+  StyledEdit,
+  StyledProfileDescription,
+  StyledName,
+} from "./style";
 
 export const ProfileDashboard = () => {
-  const { setOpenModal, setTypeModal, setIdUser } = useContext(ServiceContext);
-  const { userProfile } = useContext(UserContext);
+  const { setOpenModal, setTypeModal } = useContext(ServiceContext);
+  const { user } = useContext(UserContext);
 
   return (
     <StyledProfile>
@@ -27,7 +26,6 @@ export const ProfileDashboard = () => {
             onClick={() => {
               setOpenModal(true);
               setTypeModal("EditUser");
-              setIdUser(userProfile.id);
             }}
           >
             <MdEdit />
@@ -37,18 +35,18 @@ export const ProfileDashboard = () => {
           <ImgProfile
             alt="imagem de perfil do usuário"
             type="profile"
-            srcLink={userProfile.avatar}
+            srcLink={user?.avatar}
           />
           <StyledName>
             <div>
               <Title colorTitle="white" type="Heading1">
-                {userProfile.name}
+                {user?.name}
               </Title>
               <Title colorTitle="white" type="Body">
-                {userProfile.email}
+                {user?.email}
               </Title>
               <Title colorTitle="white" type="Body">
-                {userProfile.contact}
+                {user?.contact}
               </Title>
             </div>
           </StyledName>

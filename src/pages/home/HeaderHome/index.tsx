@@ -1,5 +1,5 @@
 import { StyledHeader } from "./style";
-import logoHeader from "../../../assets/logo-home-header.svg";
+import logoHeader from "../../../assets/header-logo.svg";
 import { ContainerHome } from "../style";
 import { StyledLink } from "../../../styles/buttons";
 

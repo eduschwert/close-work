@@ -1,4 +1,4 @@
-import { Title } from "../Title";
+import { StyledText } from "../../styles/typography";
 import { Fieldset } from "./style";
 import { iTextareaProps } from "./type";
 
@@ -19,9 +19,15 @@ export const Textarea = ({
         disabled={disabled}
         id={id}
       />
-      <Title type="Body-600" colorTitle="negative">
+      <StyledText
+        tag="small"
+        fontSize="1.4rem"
+        fontWeigth="600"
+        lineHeight="2.4rem"
+        color="var(--color-negative-2)"
+      >
         {error}
-      </Title>
+      </StyledText>
     </Fieldset>
   );
 };

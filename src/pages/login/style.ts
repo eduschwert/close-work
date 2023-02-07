@@ -4,11 +4,10 @@ export const StyledLogin = styled.main`
   min-height: 100vh;
   display: flex;
   flex-direction: column-reverse;
-  align-items: center;
   justify-content: center;
-  padding: 10px 10px 40px 10px;
-  background-color: var(--color-blue-2);
-  color: var(--color-gray-10);
+  align-items: center;
+
+  background: var(--color-blue-2);
 
   section:nth-child(1) {
     & > h2 + div {
@@ -23,28 +22,6 @@ export const StyledLogin = styled.main`
   @media (min-width: 800px) {
     flex-direction: row;
     gap: 5vw;
-  }
-
-  .img-section-login {
-    margin: 20px 0 30px 0;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 30px;
-
-    .logo-login {
-      width: 100%;
-      max-width: 300px;
-    }
-    .workers-img-login {
-      max-width: 450px;
-    }
-
-    @media (max-width: 800px) {
-      .workers-img-login {
-        display: none;
-      }
-    }
   }
 
   form {

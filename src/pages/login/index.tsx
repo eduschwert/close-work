@@ -1,10 +1,8 @@
 import { StyledLogin } from "./style";
-import { Button } from "../../components/Button";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import fullLogo from "../../assets/light-full-logo.svg";
-import workersImg from "../../assets/workers-img.svg";
-import { LinkNavigation } from "../../components/LinkNavigation";
+import fullLogo from "../../assets/light-hands-logo.svg";
+import workersImg from "../../assets/workers-logo.svg";
 import { ILoginFormData } from "./types";
 import { loginSchema } from "./loginSchema";
 import { Input } from "../../components/Input";
@@ -12,7 +10,7 @@ import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { Title } from "../../components/Title";
 import { RotatingLines } from "react-loader-spinner";
-import { FramerMotionLoginRegister } from "../../components/FramerMotion";
+import { motion } from "framer-motion";
 import {
   StyledButton,
   StyledLink,
@@ -20,7 +18,7 @@ import {
 } from "../../styles/buttons";
 
 export const Login = () => {
-  const { loadingButton, onSubmitLogin } = useContext(UserContext);
+  const { login, localLoading } = useContext(UserContext);
 
   const {
     register,
@@ -36,14 +34,18 @@ export const Login = () => {
   });
   return (
     <StyledLogin>
-      <FramerMotionLoginRegister>
+      <motion.section
+        initial={{ scale: 1.02 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 0.3, ease: "linear" }}
+      >
         <Title colorTitle="blue-2" type="Heading1">
           Login
         </Title>
         <div>
           <StyledLinkInline to="/home">Retornar para Home</StyledLinkInline>
         </div>
-        <form action="submit" onSubmit={handleSubmit(onSubmitLogin)} noValidate>
+        <form action="submit" onSubmit={handleSubmit(login)} noValidate>
           <Input
             id="input-email"
             labelName="Email"
@@ -63,9 +65,9 @@ export const Login = () => {
           <StyledButton
             buttonStyle="blueDark2"
             type="submit"
-            disabled={loadingButton}
+            disabled={localLoading}
           >
-            {loadingButton ? (
+            {localLoading ? (
               <RotatingLines
                 strokeColor="white"
                 strokeWidth="5"
@@ -77,24 +79,26 @@ export const Login = () => {
               "Login"
             )}
           </StyledButton>
+          <div>
+            <p>Ainda não tem conta? Realize seu cadastro agora!</p>
+            <StyledLink buttonStyle="blueLight" to="/register">
+              Cadastrar
+            </StyledLink>
+          </div>
         </form>
-        <div>
-          <p>Ainda não tem conta? Realize seu cadastro agora!</p>
-          <StyledLink buttonStyle="blueLight" to="/register">
-            Cadastrar
-          </StyledLink>
-        </div>
-      </FramerMotionLoginRegister>
-      <FramerMotionLoginRegister className="img-section-login">
+      </motion.section>
+      <motion.section
+        initial={{ scale: 1.02 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 0.3, ease: "linear" }}
+      >
         <img src={fullLogo} className="logo-login" alt="Logo Close Worker" />
         <img
           src={workersImg}
           className="workers-img-login"
           alt="imagem de profissões"
         />
-      </FramerMotionLoginRegister>
+      </motion.section>
     </StyledLogin>
   );
 };
-
-/* A senha do usercoments@gmail.com é 123456 */

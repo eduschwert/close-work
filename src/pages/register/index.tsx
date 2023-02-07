@@ -4,50 +4,51 @@ import { registerSchema } from "./registerSchema";
 import { UserContext } from "../../context/UserContext";
 import { useContext } from "react";
 import { StyledRegister } from "./style";
-import fullLogo from "../../assets/light-full-logo.svg";
-import workersImg from "../../assets/workers-img.svg";
+import fullLogo from "../../assets/light-hands-logo.svg";
+import workersImg from "../../assets/workers-logo.svg";
 import { Input } from "../../components/Input";
 import { Title } from "../../components/Title";
 import { RotatingLines } from "react-loader-spinner";
-import { FramerMotionLoginRegister } from "../../components/FramerMotion";
+import { motion } from "framer-motion";
 import {
   StyledButton,
   StyledLink,
   StyledLinkInline,
 } from "../../styles/buttons";
-
-interface IRegisterFormData {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword?: string;
-  contact: string;
-}
+import { iUserFormRegister } from "../../context/UserContext/@types";
+import { handlePhone } from "../../functions";
 
 export const Register = () => {
-  const { loadingButton, onSubmitRegister, handlePhone } =
-    useContext(UserContext);
+  const { register: registerSubmit, localLoading } = useContext(UserContext);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IRegisterFormData>({
+  } = useForm<iUserFormRegister>({
     mode: "onChange",
     resolver: yupResolver(registerSchema),
   });
 
   return (
     <StyledRegister>
-      <FramerMotionLoginRegister className="img-section">
+      <motion.section
+        initial={{ scale: 1.02 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 0.3, ease: "linear" }}
+      >
         <img src={fullLogo} className="logo" alt="Logo Close Worker" />
         <img
           src={workersImg}
           className="workers-img"
           alt="imagem de profissões"
         />
-      </FramerMotionLoginRegister>
-      <FramerMotionLoginRegister className="form-section">
+      </motion.section>
+      <motion.section
+        initial={{ scale: 1.02 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 0.3, ease: "linear" }}
+      >
         <Title colorTitle="blue-2" type="Heading1">
           Cadastro
         </Title>
@@ -56,7 +57,7 @@ export const Register = () => {
         </div>
         <form
           action="submit"
-          onSubmit={handleSubmit(onSubmitRegister)}
+          onSubmit={handleSubmit(registerSubmit)}
           noValidate
         >
           <Input
@@ -90,9 +91,9 @@ export const Register = () => {
             id="input-confirm-password"
             labelName="Confirmar senha"
             type="password"
-            linkForm={register("confirmPassword")}
+            linkForm={register("passwordConfirm")}
             placeholder="Digite sua senha novamente"
-            error={errors.confirmPassword?.message}
+            error={errors.passwordConfirm?.message}
           />
 
           <Input
@@ -102,16 +103,15 @@ export const Register = () => {
             linkForm={register("contact")}
             placeholder="(11) 92222-3333"
             error={errors.contact?.message}
-            onChange={() => handlePhone(event)}
             maxLength={15}
           />
 
           <StyledButton
             buttonStyle="blueDark2"
             type="submit"
-            disabled={loadingButton}
+            disabled={localLoading}
           >
-            {loadingButton ? (
+            {localLoading ? (
               <RotatingLines
                 strokeColor="white"
                 strokeWidth="5"
@@ -130,7 +130,7 @@ export const Register = () => {
             Login
           </StyledLink>
         </div>
-      </FramerMotionLoginRegister>
+      </motion.section>
     </StyledRegister>
   );
 };

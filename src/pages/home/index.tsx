@@ -3,49 +3,22 @@ import { HeaderHome } from "./HeaderHome";
 import { ContainerHome, PageContainer, StyledFilterSection } from "./style";
 import { Footer } from "../../components/Footer";
 import { ServicesList } from "./ServicesList";
-import { ServiceContext } from "../../context/ServiceContext";
+
 import { api } from "../../services/api";
-import { SlideImagesHome } from "../../components/SlideImagesHome";
+import { SlideImagesHome } from "../../components/SlideImages";
 import { toast } from "react-toastify";
-import { FramerMotionHomeDashboardMoreInfo } from "../../components/FramerMotion";
+import { motion } from "framer-motion";
+import { ServiceContext } from "../../context/ServicesContext";
 
 export const Home = () => {
-  const {
-    setKindOfServicesSelectedHome,
-    setListServiceHome,
-    setLoadingListServiceHome,
-    setListComments,
-    kindOfServices,
-  } = useContext(ServiceContext);
-
-  useEffect(() => {
-    const requestServices = async () => {
-      try {
-        const response = await api.get("services");
-        setListServiceHome(response.data);
-      } catch (error) {
-        console.error(error);
-        toast.error("Erro no servidor, atualize a página");
-      }
-    };
-
-    const requestComments = async () => {
-      try {
-        const response = await api.get("comments");
-        setListComments(response.data);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoadingListServiceHome(false);
-      }
-    };
-
-    requestServices();
-    requestComments();
-  }, []);
+  const { setKindOfService, kindOfServices } = useContext(ServiceContext);
 
   return (
-    <FramerMotionHomeDashboardMoreInfo>
+    <motion.div
+      initial={{ y: "5%", opacity: 0.8 }}
+      animate={{ y: "0%", opacity: 1 }}
+      transition={{ duration: 0.75, ease: "easeOut" }}
+    >
       <PageContainer>
         <HeaderHome />
         <main>
@@ -55,9 +28,7 @@ export const Home = () => {
               <label htmlFor="filter">Filtrar por tipo de serviço</label>
               <select
                 id="filter"
-                onChange={(event) =>
-                  setKindOfServicesSelectedHome(event.target.value)
-                }
+                onChange={(event) => setKindOfService(event.target.value)}
               >
                 {kindOfServices.map((service, index) => (
                   <option key={index} value={service}>
@@ -75,6 +46,6 @@ export const Home = () => {
         </main>
         <Footer />
       </PageContainer>
-    </FramerMotionHomeDashboardMoreInfo>
+    </motion.div>
   );
 };

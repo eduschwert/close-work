@@ -4,14 +4,14 @@ import {
   StyledContainerImgModal,
   StyledContainerImgHome,
 } from "./style";
-import icon from "../../assets/icon-profile.svg";
-import { iImgProfileProps } from "./type";
+import defaultImageProfile from "../../assets/default-profile-image.svg";
+import { iImgProfileProps } from "./@types";
 
 export const ImgProfile = ({ alt, srcLink, type }: iImgProfileProps) => {
   const imgProfileRef = useRef<HTMLImageElement>(null);
   const validateImgProfile = () => {
     if (imgProfileRef.current !== null) {
-      imgProfileRef.current.src = icon;
+      imgProfileRef.current.src = defaultImageProfile;
     }
   };
 

@@ -1,6 +1,6 @@
-import { Title } from "../Title";
+import { StyledText } from "../../styles/typography";
 import { Fieldset } from "./style";
-import { iInput } from "./type";
+import { iInput } from "./@types";
 
 export const Input = ({
   type,
@@ -10,7 +10,6 @@ export const Input = ({
   linkForm,
   error,
   disabled,
-  onChange,
   maxLength,
 }: iInput) => {
   return (
@@ -23,13 +22,17 @@ export const Input = ({
           placeholder={placeholder}
           {...linkForm}
           disabled={disabled}
-          onChange={onChange}
           maxLength={maxLength}
         />
-
-        <Title type="Body-600" colorTitle="negative">
+        <StyledText
+          tag="small"
+          fontSize="1.4rem"
+          fontWeigth="600"
+          lineHeight="2.4rem"
+          color="var(--color-negative-2)"
+        >
           {error}
-        </Title>
+        </StyledText>
       </Fieldset>
     </>
   );

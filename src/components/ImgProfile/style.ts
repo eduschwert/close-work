@@ -1,19 +1,21 @@
 import styled from "styled-components";
 
 export const StyledContainerImgProfile = styled.div`
-  width: 210px;
-  height: 210px;
-  background-color: transparent;
+  width: 21rem;
+  height: 21rem;
+
+  background: transparent;
 
   overflow: hidden;
 
-  border-radius: 100%;
+  border-radius: var(--radius-circle);
 
   img {
     width: 100%;
-    height: 100%;
+
     object-fit: cover;
-    transition: 250ms ease-in-out;
+
+    transition: 150ms ease-in-out;
     &:hover {
       transform: scale(1.1);
     }
@@ -21,30 +23,33 @@ export const StyledContainerImgProfile = styled.div`
 `;
 
 export const StyledContainerImgModal = styled.div`
-  width: 50px;
-  height: 50px;
-  background-color: transparent;
+  width: 5rem;
+  height: 5rem;
+
+  background: transparent;
 
   img {
     width: 100%;
-    height: 100%;
+
     object-fit: cover;
-    border-radius: 100%;
+
+    border-radius: var(--radius-circle);
   }
 `;
 
 export const StyledContainerImgHome = styled.div`
-  width: 150px;
-  height: 150px;
-  background-color: transparent;
+  width: 15rem;
+  height: 15rem;
+  background: transparent;
 
   overflow: visible;
 
   img {
     width: 100%;
-    height: 100%;
+
     object-fit: cover;
-    border-radius: 50%;
+
+    border-radius: var(--radius-circle);
 
     transition: 150ms ease-in-out;
 

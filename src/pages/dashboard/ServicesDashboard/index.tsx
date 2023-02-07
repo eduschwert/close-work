@@ -1,25 +1,19 @@
-import {
-  StyledRegisterServices,
-  StyledService,
-  StyledServices,
-  StyledServicesDashboard,
-} from "./style";
-import { Button } from "../../../components/Button";
-import { ContainerHome } from "./style";
-import { CardDashboard } from "../cardDashboard";
-import { Title } from "../../../components/Title";
 import { useContext } from "react";
-import { ServiceContext } from "../../../context/ServiceContext";
 import { LoadingContainer } from "../../../components/LoadingContainer";
+import { Title } from "../../../components/Title";
+import { ServiceContext } from "../../../context/ServicesContext";
 import { StyledButton } from "../../../styles/buttons";
+import { ContainerHome } from "../style";
+import { CardDashboard } from "./cardDashboard";
+import { StyledServicesDashboard, StyledRegisterServices, StyledService, StyledServices } from "./style";
+
 
 export const ServicesDashboard = () => {
   const {
     setOpenModal,
     setTypeModal,
-    validatelistServiceUserLogged,
-    listServiceUserLogged,
-    loadingListServiceDashboard,
+    servicesUser
+  
   } = useContext(ServiceContext);
   return (
     <StyledServicesDashboard>
@@ -44,10 +38,10 @@ export const ServicesDashboard = () => {
         <Title children="Serviços" type="Heading2" colorTitle="blue-2" />
       </StyledService>
       <ContainerHome>
-        {loadingListServiceDashboard ? (
-          validatelistServiceUserLogged ? (
+        { servicesUser?.length >
+         0 ? (
             <StyledServices>
-              {listServiceUserLogged.map((item, index) => {
+              {servicesUser?.map((item, index) => {
                 return <CardDashboard key={index} item={item} />;
               })}
             </StyledServices>

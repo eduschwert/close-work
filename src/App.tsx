@@ -1,7 +1,9 @@
-import { RoutesApp } from "./router";
+import { RoutesMain as Routes } from "./routes";
 import { GlobalStyle } from "./styles/global";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { UserProvider } from "./context/UserContext";
+import { BrowserRouter } from "react-router-dom";
 
 export const App = () => {
   return (
@@ -17,7 +19,11 @@ export const App = () => {
         draggable
         pauseOnHover={false}
       />
-      <RoutesApp />
+      <BrowserRouter>
+        <UserProvider>
+          <Routes />
+        </UserProvider>
+      </BrowserRouter>
       <GlobalStyle />
     </>
   );

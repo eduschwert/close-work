@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Footer } from "../../components/Footer";
-import { FramerMotionHomeDashboardMoreInfo } from "../../components/FramerMotion";
+import { motion } from "framer-motion";
 import { LoadingFullPage } from "../../components/LoadingFullPage";
 import { Title } from "../../components/Title";
 import { iListComments } from "../../context/type";
@@ -66,7 +66,11 @@ export const MoreInfo = () => {
       {loadingPage ? (
         <LoadingFullPage />
       ) : (
-        <FramerMotionHomeDashboardMoreInfo>
+        <motion.div
+          initial={{ y: "5%", opacity: 0.8 }}
+          animate={{ y: "0%", opacity: 1 }}
+          transition={{ duration: 0.75, ease: "easeOut" }}
+        >
           <StyledMoreInfo>
             <HeaderMoreInfo />
             <ProfileMoreInfo service={serviceMoreInfo} />
@@ -88,7 +92,7 @@ export const MoreInfo = () => {
             <ListComments listCommentsProp={listComments} />
             <Footer />
           </StyledMoreInfo>
-        </FramerMotionHomeDashboardMoreInfo>
+        </motion.div>
       )}
     </>
   );

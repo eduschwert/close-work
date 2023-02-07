@@ -1,32 +1,29 @@
+import { motion } from "framer-motion";
+import { useContext } from "react";
+import { Footer } from "../../components/Footer";
+import { ServiceContext } from "../../context/ServicesContext";
 import { HeaderDashboard } from "./HeaderDashboard";
+import { ModalDashboard } from "./ModalDashboard";
 import { ProfileDashboard } from "./ProfileDashboard";
 import { ServicesDashboard } from "./ServicesDashboard";
-import { Footer } from "../../components/Footer";
 import { StyledDashboard } from "./style";
-import { ModalDashboard } from "../../components/ModalDashboard";
-import { useContext } from "react";
-import { ServiceContext } from "../../context/ServiceContext";
-import { UserContext } from "../../context/UserContext";
-import { LoadingFullPage } from "../../components/LoadingFullPage";
-import { FramerMotionHomeDashboardMoreInfo } from "../../components/FramerMotion";
 
 export const Dashboard = () => {
   const { openModal } = useContext(ServiceContext);
-  const { userProfile } = useContext(UserContext);
 
   return (
-    <FramerMotionHomeDashboardMoreInfo>
-      {Object.keys(userProfile).length > 0 ? (
-        <StyledDashboard>
-          {openModal ? <ModalDashboard /> : ""}
-          <HeaderDashboard />
-          <ProfileDashboard />
-          <ServicesDashboard />
-          <Footer />
-        </StyledDashboard>
-      ) : (
-        <LoadingFullPage />
-      )}
-    </FramerMotionHomeDashboardMoreInfo>
+    <motion.div
+      initial={{ y: "5%", opacity: 0.8 }}
+      animate={{ y: "0%", opacity: 1 }}
+      transition={{ duration: 0.75, ease: "easeOut" }}
+    >
+      <StyledDashboard>
+        {openModal && <ModalDashboard />}
+        <HeaderDashboard />
+        <ProfileDashboard />
+        <ServicesDashboard />
+        <Footer />
+      </StyledDashboard>
+    </motion.div>
   );
 };

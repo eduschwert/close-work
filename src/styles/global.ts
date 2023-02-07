@@ -24,7 +24,8 @@ export const GlobalStyle = createGlobalStyle`
     --color-neutral-black: #000000;
   
     --color-sucess: #168821;
-    --color-negative: #E60000;
+    --color-negative-1: #E60000;
+    --color-negative-2: #FF8787;
 
     --radius-1: 0.4rem;
     --radius-circle: 50%;
@@ -70,15 +71,15 @@ export const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   }
 
-::-webkit-scrollbar {
-  width: 12px;              
-}
-::-webkit-scrollbar-track {
-  background: var(--color-blue-5);        
-}
-::-webkit-scrollbar-thumb {
-  background-color: var(--color-blue-2);   
-  border-radius: 20px;     
-  border: 3px solid var(--color-blue-5); 
-}
+  ::-webkit-scrollbar {
+    width: 12px;              
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-blue-5);        
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-blue-2);   
+    border-radius: 20px;     
+    border: 3px solid var(--color-blue-5); 
+  }
 `;
