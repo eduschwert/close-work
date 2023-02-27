@@ -117,4 +117,4 @@ ou acesse a aplicação pelo site: <a href="https://close-work.vercel.app/home" 
 
 ## :dart: Status do projeto
 
-\*Finalizado
+\*Em produção
